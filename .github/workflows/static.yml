@@ -65,7 +65,11 @@ jobs:
         run: pnpm install
       
       - name: Build
-        run: pnpm build
+        env:
+          BASE_PATH: '/your-repo-name'
+        run: |
+          pnpm build
+          touch build/.nojekyll
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
